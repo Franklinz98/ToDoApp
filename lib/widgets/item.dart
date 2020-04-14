@@ -7,7 +7,7 @@ class ListItem extends StatelessWidget {
   final ToDo todo;
   final VoidCallback onPressed;
 
-  const ListItem({Key key, @required this.todo, @required this.onPressed}) : super(key: key);
+  const ListItem({Key key, @required this.todo,  @required this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

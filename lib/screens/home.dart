@@ -19,8 +19,11 @@ class _HomeState extends State<Home> {
         builder: (context) {
           return NewToDoDialog();
         }).then((val) {
-      final snackBar = SnackBar(content: Text(val.title));
-      Scaffold.of(context).showSnackBar(snackBar);
+          if(val!=null){
+            setState(() {
+              todos.add(val);
+            });
+          }
     });
   }
 
@@ -71,7 +74,7 @@ class _HomeState extends State<Home> {
                   var element = todos[posicion];
                   return Dismissible(
                     // TODO: no estoy seguro de este Key
-                    key: Key(element.id.toString()),
+                    key:UniqueKey(),
                     onDismissed: (direction) {
                       // Remove the item from the data source.
                       setState(() {
@@ -79,10 +82,14 @@ class _HomeState extends State<Home> {
                       });
                       // Then show a snackbar.
                       Scaffold.of(context).showSnackBar(
-                          SnackBar(content: Text('$element.title dismissed')));
+                      SnackBar(content: Text('$element.title dismissed')));
                     },
                     //TODO: ToDo listo o no (ONTAP)
-                    child: ListItem(todo: element, onPressed: (){},),
+                    child: ListItem(todo: element, onPressed: (){
+                      setState(() {
+                        element.completed=element.completed==0?1:0;
+                      });
+                    }),
                     background: DismissibleBackground(alignment: -1.0),
                     secondaryBackground: DismissibleBackground(alignment: 1.0),
                   );

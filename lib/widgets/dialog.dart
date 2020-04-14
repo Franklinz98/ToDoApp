@@ -90,10 +90,12 @@ class _NewToDoDialogState extends State<NewToDoDialog> {
           FlatButton(
             onPressed: () {
               if (_formKey.currentState.validate()) {
+                
                 final todo = new ToDo(
                   title: controllerTitle.value.text,
                   body: controllerBody.value.text,
                   completed: 0,
+                  
                 );
                 controllerTitle.clear();
                 controllerBody.clear();
