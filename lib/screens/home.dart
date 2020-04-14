@@ -81,8 +81,9 @@ class _HomeState extends State<Home> {
                         todos.removeAt(posicion);
                       });
                       // Then show a snackbar.
+                      String title = element.title;
                       Scaffold.of(context).showSnackBar(
-                      SnackBar(content: Text('$element.title dismissed')));
+                      SnackBar(content: Text('$title deleted')));
                     },
                     //TODO: ToDo listo o no (ONTAP)
                     child: ListItem(todo: element, onPressed: (){
