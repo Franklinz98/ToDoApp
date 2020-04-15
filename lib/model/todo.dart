@@ -5,5 +5,6 @@ class ToDo {
   String title;
   String body;
   int completed=0;
-  ToDo({@required this.title, @required this.body, @required this.completed, this.id});
+  String type="Default";
+  ToDo({@required this.title, @required this.body, @required this.completed, @required this.type, this.id});
 }

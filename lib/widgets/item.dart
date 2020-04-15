@@ -8,7 +8,20 @@ class ListItem extends StatelessWidget {
   final VoidCallback onPressed;
 
   const ListItem({Key key, @required this.todo,  @required this.onPressed}) : super(key: key);
-
+  
+  String _getResource(String type){
+    switch(type){
+      case 'Call':
+        return "assets/images/call_icon.png";
+      case 'HomeWork':
+       return "assets/images/homework_icon.png";
+      default:
+        return "assets/images/item_icon.png";
+    }
+    
+/*
+            ''*/
+  }
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -17,7 +30,7 @@ class ListItem extends StatelessWidget {
         elevation: 2.0,
         child: ListTile(
           leading: Image.asset(
-            'assets/images/item_icon.png',
+            _getResource(this.todo.type),
             height: 36.0,
             width: 36.0,
           ),
